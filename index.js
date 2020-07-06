@@ -2,6 +2,7 @@ const Discord = require('discord.js');
 const fs = require('fs');
 const package = require('./package.json');
 const config = require('./config.json');
+const poll = require('./commands/poll');
 const client = new Discord.Client();
 client.commands = new Discord.Collection();
 
@@ -27,7 +28,12 @@ client.on('message', message => {
     if(!client.commands.has(command)) return;
 
     try{
-        client.commands.get(command).execute(message, args);
+        let object = config.commands.find(e => e.name === command);
+        if(object.active){
+            client.commands.get(command).execute(message, args);
+        }else{
+            message.channel.send(`El comando ${object.name} no esta activo.`);
+        }
     }catch(e){
         console.error(e);
         message.reply('¡Ocurrio un error al intentar ejecutar este comando!');

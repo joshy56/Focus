@@ -13,5 +13,15 @@
         "8️⃣",
         "9️⃣",
         "🔟"
+    ],
+    "commands":[
+        {
+            "name": "poll",
+            "active": true
+        },
+        {
+            "name": "ping",
+            "active": true
+        }
     ]
 }
