@@ -22,6 +22,14 @@
         {
             "name": "ping",
             "active": true
+        },
+        {
+            "name": "join",
+            "active": true
+        },
+        {
+            "name": "play",
+            "active": true
         }
     ]
 }
